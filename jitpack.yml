@@ -1,0 +1,5 @@
+jitpack:
+  releases:
+    - include:           # Files and directories to include in the release
+        - build.gradle
+        - src/
