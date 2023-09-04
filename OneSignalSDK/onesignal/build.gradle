@@ -39,4 +39,4 @@ dependencies {
     api project(':OneSignal:location')
 }
 
-apply from: 'maven-push.gradle'
+//apply from: 'maven-push.gradle'
