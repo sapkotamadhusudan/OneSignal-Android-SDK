@@ -116,4 +116,21 @@ ktlint {
     version = "$ktlintVersion"
 }
 
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourceJar
+}
+
+task packageAar(type: Zip) {
+    from android.sourceSets.main.java.srcDirs
+    into('src/main/java')
+    archiveName = 'sources.jar'
+}
+
+tasks.build.dependsOn(packageAar)
+
 //apply from: '../maven-push.gradle'
