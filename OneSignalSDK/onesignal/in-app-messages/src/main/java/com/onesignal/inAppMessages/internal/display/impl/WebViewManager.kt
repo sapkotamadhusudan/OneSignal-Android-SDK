@@ -273,19 +273,19 @@ internal class WebViewManager(
 
     private suspend fun showMessageView(newHeight: Int?) {
         messageViewMutex.withLock {
-            if (messageView == null) {
+            if (messageView == null || webView == null) {
                 Logging.warn("No messageView found to update a with a new height.")
                 return
             }
             Logging.debug("In app message, showing first one with height: $newHeight")
 
-            messageView!!.setWebView(webView!!)
+            messageView?.setWebView(webView)
             if (newHeight != null) {
                 lastPageHeight = newHeight
-                messageView!!.updateHeight(newHeight)
+                messageView?.updateHeight(newHeight)
             }
-            messageView!!.showView(activity)
-            messageView!!.checkIfShouldDismiss()
+            messageView?.showView(activity)
+            messageView?.checkIfShouldDismiss()
         }
     }
 
