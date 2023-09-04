@@ -433,7 +433,7 @@ internal class InAppMessageView(
             dereferenceViews()
             return
         }
-        draggableRelativeLayout!!.dismiss()
+        draggableRelativeLayout?.dismiss()
         finishAfterDelay()
     }
 
